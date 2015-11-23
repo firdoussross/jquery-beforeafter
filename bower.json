@@ -1,0 +1,32 @@
+{
+  "name": "jquery-beforeafter",
+  "authors": [
+    "Firdouss Ross <hello@geekmy.co>"
+  ],
+  "description": "jQuery plugin for showing before and after images",
+  "main": "dist/jquery.beforeafter.min.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "jquery",
+    "plugin",
+    "before",
+    "after",
+    "hover",
+    "slide"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}
