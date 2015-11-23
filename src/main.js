@@ -23,11 +23,17 @@
 
 (function ($) {
     $.fn.beforeafter = function (options) {
-        console.log(this);
-
         var settings = $.extend({
             touch: true,
         }, options);
+
+        this.each(function () {
+            var imgobj = $(this).find('img'),
+                aftersrc = imgobj.data('aftersrc');
+
+            imgobj.after('<div class="g-img-after"><img src="' + aftersrc + '"></div>');
+            imgobj.addClass('g-img-before');
+        });
 
         return this;
     };

@@ -7,10 +7,12 @@
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    srcfiles = [
-              'src/main.js'
-          ],
+    less = require('gulp-less'),
+    csso = require('gulp-csso'),
+    srcfiles = ['src/main.js'],
     distdir = 'dist',
+    democss = ['assets/css/demo.less'],
+    democss_output = 'assets/css',
     compression = {
         outSourceMaps: true,
         output: {
@@ -25,12 +27,21 @@ gulp.task('build', function () {
         .pipe(gulp.dest(distdir));
 });
 
+gulp.task('build-demo', function () {
+    return gulp.src(democss)
+        .pipe(less())
+        .pipe(concat('demo.styles.css'))
+        .pipe(csso())
+        .pipe(gulp.dest(democss_output));
+});
+
 gulp.task('watch', function () {
     gulp.watch('src/*.js', ['build']);
+    gulp.watch('assets/css/*.less', ['build-demo']);
 });
 
 gulp.on('err', function (err) {
     console.log(err);
 });
 
-gulp.task('default', ['build']);
+gulp.task('default', ['build', 'build-demo']);

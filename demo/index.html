@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+        <title>jQuery Before/After Plugin Demo</title>
+
+        <link type="text/css" rel="stylesheet" media="all" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" media="all" href="../assets/css/demo.styles.css">
+    </head>
+    <body>
+        <section class="container">
+            <h1>jQuery Before/After Plugin Demo</h1>
+            <hr>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Typical Usage</div>
+                <div class="panel-body">
+                    <div class="g-before-after">
+                        <img src="../assets/img/img_before.png" data-aftersrc="../assets/img/img_after.png">
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        <strong>HTML:</strong>
+                        <pre>&lt;div class="g-before-after"&gt;&lt;/div&gt;</pre>
+                    </p>
+
+                    <p>
+                        <strong>JavaScript:</strong>
+                        <pre>$('.g-before-after').beforeafter();</pre>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../dist/jquery.beforeafter.min.js"></script>
+        <script src="../assets/js/demo.js"></script>
+    </body>
+</html>
