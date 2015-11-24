@@ -1,6 +1,6 @@
 {
   "name": "jquery-beforeafter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "jQuery plugin for showing before and after images",
   "main": "dist/jquery.beforeafter.min.js",
   "scripts": {
