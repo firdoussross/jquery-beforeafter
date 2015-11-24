@@ -2,6 +2,10 @@
 
 This is a simple plugin to create a before/after image that responds to mouse movement as well as touch movements.
 
+Like this:
+
+![Before/After](https://raw.github.com/geekmy/jquery-beforeafter/master/assets/img/before_after.gif)
+
 ### Requirements
 
 jQuery 1.8+
