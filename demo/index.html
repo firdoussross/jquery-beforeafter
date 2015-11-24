@@ -10,27 +10,51 @@
         <link type="text/css" rel="stylesheet" media="all" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
         <link type="text/css" rel="stylesheet" media="all" href="../assets/css/demo.styles.css">
     </head>
-    <body>
+    <body data-spy="scroll" data-offset="70" data-target="#navbar-example"data-offset="70" >
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="navbar-example">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#beforeafter-nav" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">jQuery Before/After</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="beforeafter-nav">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#typicalusage">Typical Usage</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
         <section class="container">
             <h1>jQuery Before/After Plugin Demo</h1>
             <hr>
 
-            <div class="panel panel-default">
+            <div class="panel panel-default" id="typicalusage">
                 <div class="panel-heading">Typical Usage</div>
                 <div class="panel-body">
-                    <div class="g-before-after">
+                    <div class="g-before-after" id="example1">
                         <img src="../assets/img/img_before.png" data-aftersrc="../assets/img/img_after.png">
                     </div>
                 </div>
                 <div class="panel-body">
                     <p>
                         <strong>HTML:</strong>
-                        <pre>&lt;div class="g-before-after"&gt;&lt;/div&gt;</pre>
+                        <pre>
+&lt;div class=&quot;g-before-after&quot; id=&quot;example1&quot;&gt;
+    &lt;img src=&quot;../assets/img/img_before.png&quot; data-aftersrc=&quot;../assets/img/img_after.png&quot;&gt;
+&lt;/div&gt;
+</pre>
                     </p>
 
                     <p>
                         <strong>JavaScript:</strong>
-                        <pre>$('.g-before-after').beforeafter();</pre>
+                        <pre>$('#example1').beforeafter();</pre>
                     </p>
                 </div>
             </div>

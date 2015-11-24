@@ -25,14 +25,74 @@
     $.fn.beforeafter = function (options) {
         var settings = $.extend({
             touch: true,
+            message: "Slide",
+            hide_message: true,
+            reset: true,
+            reset_delay: 3000,
         }, options);
 
         this.each(function () {
-            var imgobj = $(this).find('img'),
-                aftersrc = imgobj.data('aftersrc');
+            var container = $(this),
+                imgobj = container.find('img'),
+                aftersrc = imgobj.data('aftersrc'),
+                container_width = container.width();
 
-            imgobj.after('<div class="g-img-after"><img src="' + aftersrc + '"></div>');
-            imgobj.addClass('g-img-before');
+            imgobj.after('<div class="g-img-after"><img style="width: ' + container_width + 'px;" src="' + aftersrc + '"></div>');
+            imgobj.addClass('g-img-before').width(container_width);
+
+            container.append('<div class="g-img-divider"><span>' + settings.message + '</span></div>');
+
+            /**
+                Events
+            **/
+            container
+                .on('mouseenter', function (e) {
+                    var timer = container.data('reset-timer');
+
+                    if (timer) {
+                        window.clearTimeout(timer);
+                        container.data('reset-timer', false);
+                    }
+                })
+                // end on mouseenter
+                .on('mousemove', function (e) {
+                    var mouse_position = e.pageX - container.offset().left,
+                        percentage = (mouse_position / container_width) * 100,
+                        message_obj = container.find('.g-img-divider span');
+
+                    container.find('.g-img-after').css("left", percentage + "%");
+                    container.find('.g-img-divider').css("left", percentage + "%");
+
+                    if (settings.hide_message && message_obj.is(':visible')) {
+                        message_obj.fadeOut();
+                    }
+                })
+                // end on mousemove
+                .on('mouseleave', function (e) {
+                    var timer = container.data('reset-timer'),
+                        message_obj = container.find('.g-img-divider span');
+
+                    if (settings.reset) {
+                        if (!timer) {
+                            timer = window.setTimeout(function () {
+                                container.find('.g-img-after').animate({
+                                    left: "50%"
+                                }, 500);
+                                container.find('.g-img-divider').animate({
+                                    left: "50%"
+                                }, 500, function () {
+                                    message_obj.fadeIn();
+                                });
+
+                                container.data('reset-timer', false);
+
+                            }, settings.reset_delay);
+
+                            container.data('reset-timer', timer);
+                        }
+                    }
+                });
+                // end on mouseleave
         });
 
         return this;

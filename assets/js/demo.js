@@ -6,5 +6,5 @@
 
 
 (function ($) {
-    $('.g-before-after').beforeafter();
+    $('#example1').beforeafter();
 } (jQuery));

@@ -4,13 +4,60 @@
  *
  */
 
+body {
+    padding-top: 70px;
+    position: relative;
+}
 
 .g-before-after {
     position: relative;
+    overflow: hidden;
 
     img {
         display: block;
-        width: 100%;
-        height: auto !important;
+    }
+
+    .g-img-before {
+        float: left;
+    }
+
+    .g-img-after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 50%;
+        bottom: 0;
+        overflow: hidden;
+
+        img {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+
+    .g-img-divider {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 0;
+        border-left: 1px solid #fff;
+        border-right: 1px solid #fff;
+
+        > span {
+            position: absolute;
+            top: 50%;
+
+            display: block;
+            background-color: #fff;
+            padding: 5px 10px;
+            line-height: 1;
+            text-align: center;
+
+            -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
+        }
     }
 }
