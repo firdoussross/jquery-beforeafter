@@ -16,7 +16,6 @@
     "url": "https://github.com/geekmy/jquery-beforeafter/issues"
   },
   "homepage": "https://github.com/geekmy/jquery-beforeafter#readme",
-  "private": true,
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
