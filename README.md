@@ -39,3 +39,8 @@ Then, call this function in your JavaScript:
 | hide_message | Boolean | true    | Hides the message when mouse enters the area. Message will be shown again on reset. |
 | reset        | Boolean | true    | Resets the divider to the middle when mouse leaves the area.                        |
 | reset_delay  | Integer | 3000    | Delay, in miliseconds before triggering the reset (if reset above is true)          |
+
+
+### Notes
+
+This plugin is a quick put-together. Therefore it is not optimized nor it is performant. Feel free to submit improvements!
