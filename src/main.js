@@ -46,7 +46,7 @@
                 Events
             **/
             container
-                .on('mouseenter', function (e) {
+                .on('mouseenter touchstart', function (e) {
                     var timer = container.data('reset-timer');
 
                     if (timer) {
@@ -55,10 +55,16 @@
                     }
                 })
                 // end on mouseenter
-                .on('mousemove', function (e) {
+                .on('mousemove touchmove', function (e) {
                     var mouse_position = e.pageX - container.offset().left,
                         percentage = (mouse_position / container_width) * 100,
                         message_obj = container.find('.g-img-divider span');
+
+                    if (settings.touch && typeof (e.originalEvent.touches) !== 'undefined') {
+                        var touch = e.originalEvent.touches[0];
+
+                        percentage = ((touch.pageX - container.offset().left) / container_width) * 100;
+                    }
 
                     container.find('.g-img-after').css("left", percentage + "%");
                     container.find('.g-img-divider').css("left", percentage + "%");
@@ -68,7 +74,7 @@
                     }
                 })
                 // end on mousemove
-                .on('mouseleave', function (e) {
+                .on('mouseleave touchend touchcancel', function (e) {
                     var timer = container.data('reset-timer'),
                         message_obj = container.find('.g-img-divider span');
 
