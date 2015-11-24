@@ -4,7 +4,7 @@ This is a simple plugin to create a before/after image that responds to mouse mo
 
 Like this:
 
-![Before/After](https://raw.github.com/geekmy/jquery-beforeafter/master/assets/img/before_after.gif)
+![Before/After](assets/img/before_after.gif?raw=True)
 
 ### Requirements
 
