@@ -100,10 +100,54 @@
                                 <td>3000</td>
                                 <td>Delay, in miliseconds before triggering the reset (if <code>reset</code> above is true)</td>
                             </tr>
+                            <tr>
+                                <td><code>drag_horizontal</code></td>
+                                <td>Boolean</td>
+                                <td>true</td>
+                                <td>If <code>true</code>, react to drag horizontally (left-right). Otherwise, react to drag vertically (top-bottom)</td>
+                            </tr>
+                            <tr>
+                                <td><code>split_horizontal</code></td>
+                                <td>Boolean</td>
+                                <td>true</td>
+                                <td>If <code>true</code>, split before and after to left and right. Otherwise top and bottom.</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
+
+
+            <div class="panel panel-default" id="verticalusage">
+                <div class="panel-heading">Vertical Split</div>
+                <div class="panel-body">
+                    <div class="g-before-after" id="example2">
+                        <img src="../assets/img/img_before.png" data-aftersrc="../assets/img/img_after.png">
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        <strong>JavaScript:</strong>
+                        <pre>$('#example2').beforeafter({ drag_horizontal: false, split_horizontal: false });</pre>
+                    </p>
+                </div>
+            </div>
+
+            <div class="panel panel-default" id="verticalusage">
+                <div class="panel-heading">... or you can go nuts</div>
+                <div class="panel-body">
+                    <div class="g-before-after" id="example3">
+                        <img src="../assets/img/img_before.png" data-aftersrc="../assets/img/img_after.png">
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        <strong>JavaScript:</strong>
+                        <pre>$('#example3').beforeafter({ drag_horizontal: false, split_horizontal: true });</pre>
+                    </p>
+                </div>
+            </div>
+
         </section>
 
         <script src="../bower_components/jquery/dist/jquery.min.js"></script>

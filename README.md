@@ -32,13 +32,15 @@ Then, call this function in your JavaScript:
 
 ### Options
 
-| Option       | Type    | Default | Description                                                                         |
-|--------------|---------|---------|-------------------------------------------------------------------------------------|
-| touch        | Boolean | true    | Enable or Disable touch events (for mobile).                                        |
-| message      | String  | "Slide" | Message to show in the middle of the divider.                                       |
-| hide_message | Boolean | true    | Hides the message when mouse enters the area. Message will be shown again on reset. |
-| reset        | Boolean | true    | Resets the divider to the middle when mouse leaves the area.                        |
-| reset_delay  | Integer | 3000    | Delay, in miliseconds before triggering the reset (if reset above is true)          |
+| Option           | Type    | Default | Description                                                                         |
+|------------------|---------|---------|-------------------------------------------------------------------------------------|
+| touch            | Boolean | true    | Enable or Disable touch events (for mobile).                                        |
+| message          | String  | "Slide" | Message to show in the middle of the divider.                                       |
+| hide_message     | Boolean | true    | Hides the message when mouse enters the area. Message will be shown again on reset. |
+| reset            | Boolean | true    | Resets the divider to the middle when mouse leaves the area.                        |
+| reset_delay      | Integer | 3000    | Delay, in miliseconds before triggering the reset (if reset above is true).         |
+| drag_horizontal  | Boolean | true    | true to drag left and right. false to drag top and bottom.                          |
+| split_horizontal | Boolean | true    | true to split left and right. false to split top and bottom.                        |
 
 
 ### Notes

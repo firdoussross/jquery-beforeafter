@@ -72,4 +72,42 @@
                     transform: translate(-50%, -50%);
         }
     }
+
+    &.g-vertical {
+        .g-img-after {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+
+            img {
+                position: absolute;
+                right: auto;
+                top: auto;
+                left: 0;
+                bottom: 0;
+            }
+        }
+
+        .g-img-divider {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            bottom: auto;
+            right: 0;
+            height: 0;
+            width: 100%;
+            border-top: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            border-left: 0 none;
+            border-right: 0 none;
+
+            > span {
+                top: 50%;
+                left: 50%;
+            }
+        }
+    }
 }

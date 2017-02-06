@@ -29,18 +29,27 @@
             hide_message: true,
             reset: true,
             reset_delay: 3000,
+            drag_horizontal: true,
+            split_horizontal: true
         }, options);
 
         this.each(function () {
             var container = $(this),
                 imgobj = container.find('img'),
                 aftersrc = imgobj.data('aftersrc'),
-                container_width = container.width();
+                container_width = container.width(),
+                container_height = 0;
 
             imgobj.after('<div class="g-img-after"><img style="width: ' + container_width + 'px;" src="' + aftersrc + '"></div>');
             imgobj.addClass('g-img-before').width(container_width);
 
             container.append('<div class="g-img-divider"><span>' + settings.message + '</span></div>');
+
+            container_height = container.height();
+
+            if (!settings.split_horizontal) {
+                container.addClass('g-vertical');
+            }
 
             /**
                 Events
@@ -56,18 +65,36 @@
                 })
                 // end on mouseenter
                 .on('mousemove touchmove', function (e) {
-                    var mouse_position = e.pageX - container.offset().left,
-                        percentage = (mouse_position / container_width) * 100,
+                    var mouse_position = 0,
+                        percentage = 0,
                         message_obj = container.find('.g-img-divider span');
+
+                    if (!settings.drag_horizontal) {
+                        var screen_pos = container.offset().top - $(window).scrollTop();
+                        mouse_position = e.clientY / screen_pos;
+                        percentage = (e.clientY - screen_pos) / container_height * 100;
+                    } else {
+                        mouse_position = e.pageX - container.offset().left;
+                        percentage = (mouse_position / container_width) * 100;
+                    }
 
                     if (settings.touch && typeof (e.originalEvent.touches) !== 'undefined') {
                         var touch = e.originalEvent.touches[0];
 
-                        percentage = ((touch.pageX - container.offset().left) / container_width) * 100;
+                        if (!settings.drag_horizontal) {
+                            percentage = ((touch.pageY - container.offset().top) / container_height) * 100;
+                        } else {
+                            percentage = ((touch.pageX - container.offset().left) / container_width) * 100;
+                        }
                     }
 
-                    container.find('.g-img-after').css("left", percentage + "%");
-                    container.find('.g-img-divider').css("left", percentage + "%");
+                    if (settings.split_horizontal) {
+                        container.find('.g-img-after').css("left", percentage + "%");
+                        container.find('.g-img-divider').css("left", percentage + "%");
+                    } else {
+                        container.find('.g-img-after').css("top", percentage + "%");
+                        container.find('.g-img-divider').css("top", percentage + "%");
+                    }
 
                     if (settings.hide_message && message_obj.is(':visible')) {
                         message_obj.fadeOut();
@@ -81,14 +108,25 @@
                     if (settings.reset) {
                         if (!timer) {
                             timer = window.setTimeout(function () {
-                                container.find('.g-img-after').animate({
-                                    left: "50%"
-                                }, 500);
-                                container.find('.g-img-divider').animate({
-                                    left: "50%"
-                                }, 500, function () {
-                                    message_obj.fadeIn();
-                                });
+                                if (settings.split_horizontal) {
+                                    container.find('.g-img-after').animate({
+                                        left: "50%"
+                                    }, 500);
+                                    container.find('.g-img-divider').animate({
+                                        left: "50%"
+                                    }, 500, function () {
+                                        message_obj.fadeIn();
+                                    });
+                                } else {
+                                    container.find('.g-img-after').animate({
+                                        top: "50%"
+                                    }, 500);
+                                    container.find('.g-img-divider').animate({
+                                        top: "50%"
+                                    }, 500, function () {
+                                        message_obj.fadeIn();
+                                    });
+                                }
 
                                 container.data('reset-timer', false);
 
