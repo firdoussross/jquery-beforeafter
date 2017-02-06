@@ -43,6 +43,20 @@ Then, call this function in your JavaScript:
 | split_horizontal | Boolean | true    | true to split left and right. false to split top and bottom.                        |
 
 
+### More example uses
+
+Vertical split and vertical drag:
+
+```
+  $('#example1').beforeafter({drag_horizontal: false, split_horizontal: false});
+```
+
+Horizontal split and vertical drag:
+
+```
+  $('#example1').beforeafter({drag_horizontal: false, split_horizontal: true});
+```
+
 ### Notes
 
 This plugin is a quick put-together. Therefore it is not optimized nor it is performant. Feel free to submit improvements!
