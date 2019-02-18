@@ -64,7 +64,7 @@
                     }
                 })
                 // end on mouseenter
-                .on('mousemove touchmove', function (e) {
+                .on('mousemove touchmove resize', function (e) {
                     var mouse_position = 0,
                         percentage = 0,
                         message_obj = container.find('.g-img-divider span');
@@ -137,6 +137,12 @@
                     }
                 });
                 // end on mouseleave
+
+            $(window).resize(function() {
+                container_width = container.width();
+                $('.g-img-after img').width(container_width);
+                imgobj.width(container_width);
+            });
         });
 
         return this;
