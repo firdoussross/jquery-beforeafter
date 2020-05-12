@@ -4,7 +4,7 @@ This is a simple plugin to create a before/after image that responds to mouse mo
 
 Like this:
 
-![Before/After](assets/img/before_after.gif?raw=True)
+![Before/After](before_after.gif?raw=True)
 
 ### Requirements
 
