@@ -1,0 +1,8 @@
+title: jQuery Before/After
+description: jQuery plugin for showing before and after images
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-cayman
+
+gems:
+  - jekyll-mentions
